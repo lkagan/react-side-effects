@@ -12,6 +12,15 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
 
     useEffect(() => {
+        console.log('EFFECT RUNNING');
+
+        // Runs before dependency changes after first run.
+        return () => {
+            console.log('EFFECT CLEANUP');
+        }
+    }, [enteredPassword]);
+
+    useEffect(() => {
         const timer = setTimeout(() => {
             console.log("Checking validity");
             setFormIsValid(enteredEmail.includes('@') && enteredPassword.trim().length > 6);
