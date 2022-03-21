@@ -1,6 +1,13 @@
 import classes from "./Input.module.css";
+import {useEffect, useRef} from "react";
 
 const Input = (props) => {
+    const inputRef = useRef();
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
     return (
         <div
             className={`${classes.control} ${
@@ -13,6 +20,7 @@ const Input = (props) => {
             {props.label}
             </label>
             <input
+                ref={inputRef}
                 id={props.id}
                 type={props.type || "text"}
                 value={props.value}
