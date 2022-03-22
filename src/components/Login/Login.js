@@ -74,7 +74,7 @@ const Login = (props) => {
 
         return () =>  clearTimeout(timer);
 
-    }, [emailState, passwordIsValid]);
+    }, [emailState.isValid, passwordState.isValid]);
 
     const emailChangeHandler = (event) => {
         dispatchEmail({type: 'USER_INPUT', val: event.target.value});
